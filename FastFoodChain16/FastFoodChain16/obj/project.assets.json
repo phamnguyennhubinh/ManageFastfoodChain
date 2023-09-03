@@ -3676,11 +3676,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\ManageFastfoodChain\\FastFoodChain16\\FastFoodChain16\\FastFoodChain16.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\LTCSDL\\FastFoodChain16\\FastFoodChain16\\FastFoodChain16.csproj",
       "projectName": "FastFoodChain16",
-      "projectPath": "C:\\Users\\HP\\Desktop\\ManageFastfoodChain\\FastFoodChain16\\FastFoodChain16\\FastFoodChain16.csproj",
+      "projectPath": "C:\\Users\\HP\\Desktop\\LTCSDL\\FastFoodChain16\\FastFoodChain16\\FastFoodChain16.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Desktop\\ManageFastfoodChain\\FastFoodChain16\\FastFoodChain16\\obj\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\LTCSDL\\FastFoodChain16\\FastFoodChain16\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
