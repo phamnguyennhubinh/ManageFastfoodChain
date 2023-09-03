@@ -33,13 +33,13 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=NHBNH482D;Initial Catalog=QuanLyBanFastFood16;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Data Source=.\\SQL_SERVER_TH;Initial Catalog=QuanLyBanFastFood16;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ChiTietDonHang>(entity =>
         {
-            entity.HasKey(e => new { e.MaDh, e.MaSp }).HasName("PK__ChiTietD__F557D6E0BEF6D4F1");
+            entity.HasKey(e => new { e.MaDh, e.MaSp }).HasName("PK__ChiTietD__F557D6E07EC9665D");
 
             entity.ToTable("ChiTietDonHang");
 
@@ -65,7 +65,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<DonHang>(entity =>
         {
-            entity.HasKey(e => e.MaDh).HasName("PK__DonHang__2725866179EAA885");
+            entity.HasKey(e => e.MaDh).HasName("PK__DonHang__27258661C61CB289");
 
             entity.ToTable("DonHang");
 
@@ -87,7 +87,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<KhachHang>(entity =>
         {
-            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1ED35EFE63");
+            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1E4669A904");
 
             entity.ToTable("KhachHang");
 
@@ -107,7 +107,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<LoaiSp>(entity =>
         {
-            entity.HasKey(e => e.MaLoai).HasName("PK__LoaiSP__730A5759416C4351");
+            entity.HasKey(e => e.MaLoai).HasName("PK__LoaiSP__730A5759745D5313");
 
             entity.ToTable("LoaiSP");
 
@@ -117,7 +117,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<NhaCungCap>(entity =>
         {
-            entity.HasKey(e => e.MaNcc).HasName("PK__NhaCungC__3A185DEB7E80C3A9");
+            entity.HasKey(e => e.MaNcc).HasName("PK__NhaCungC__3A185DEBB2A4D4AB");
 
             entity.ToTable("NhaCungCap");
 
@@ -133,7 +133,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<NhanVien>(entity =>
         {
-            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70A72DC560F");
+            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70A2B84CE17");
 
             entity.ToTable("NhanVien");
 
@@ -155,7 +155,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<SanPham>(entity =>
         {
-            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081C2D60FCA1");
+            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081C466AE617");
 
             entity.ToTable("SanPham");
 
@@ -177,7 +177,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<TaiKhoan>(entity =>
         {
-            entity.HasKey(e => e.MaTk).HasName("PK__TaiKhoan__272500708295DA8C");
+            entity.HasKey(e => e.MaTk).HasName("PK__TaiKhoan__27250070B23FC258");
 
             entity.ToTable("TaiKhoan");
 
