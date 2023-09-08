@@ -1,0 +1,68 @@
+﻿@model FastFoodChain16.Models.SanPham
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <style>
+        table, th, td {
+            padding: 0px 5px;
+        }
+    </style>
+    <table border="0" align="center">
+
+        <tr>
+            <td align="right"><b>TenSanPham </b> </td>
+            @*  @Html.DisplayNameFor(model => model.TenSp) *@
+            <td>
+                @Html.DisplayFor(model => model.TenSp)
+            </td>
+        </tr>
+        <tr>
+            @* @Html.DisplayNameFor(model => model.DonGia) *@
+            <td align="right"><b>DonGia</b> </td>
+            <td>
+                @Html.DisplayFor(model => model.DonGia)
+
+            </td>
+        </tr>
+        <tr>
+            @* @Html.DisplayNameFor(model => model.DonGia) *@
+            <td align="right"><b>MaLoai </b> </td>
+            <td>
+                @Html.DisplayFor(model => model.MaLoai)
+
+            </td>
+        </tr>
+        <tr>
+            @* @Html.DisplayNameFor(model => model.DonGia) *@
+            <td align="right"><b>MaNCC </b> </td>
+            <td>
+                @Html.DisplayFor(model => model.MaNcc)
+
+            </td>
+        </tr>
+        <tr>
+            @* @Html.DisplayNameFor(model => model.DonGia) *@
+            <td align="right"><b>MoTa </b> </td>
+            <td>
+                @Html.DisplayFor(model => model.MoTa)
+
+            </td>
+        </tr>
+    </table>
+ 
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="MaSp" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="ListProduct">Back to List</a>
+    </form>
+</div>
