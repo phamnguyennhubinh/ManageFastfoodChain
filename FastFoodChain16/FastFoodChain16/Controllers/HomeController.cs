@@ -13,16 +13,23 @@ namespace FastFoodChain16.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
-        public IActionResult Privacy()
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
+        public IActionResult StringModel()
         {
-            return View();
+            ViewData.Model = "Hello world from Home-Index action";
+            var view = new ViewResult();
+            view.ViewName = "/Views/Home/StringModel.cshtml";
+            view.ViewData = ViewData;
+            return view;
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

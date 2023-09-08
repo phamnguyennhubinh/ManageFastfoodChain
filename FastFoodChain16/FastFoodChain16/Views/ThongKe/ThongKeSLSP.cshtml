@@ -1,0 +1,76 @@
+﻿@model List<MonthlySaleResult>
+@{
+    ViewData["Title"] = "Thống kê số lượng sản phẩm bán trong tháng";
+    Layout = null;
+}
+
+<h1 style="text-align:center;font-weight:bold;">THỐNG KÊ SỐ LƯỢNG SẢN PHẨM BÁN TRONG THÁNG</h1>
+<head>
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<div id="formContainer">
+    @using (Html.BeginForm("ThongKeSLSP", "ThongKe", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("Select Year:")
+            @Html.DropDownList("selectedYear", (SelectList)ViewBag.Years, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Select Month:")
+            @Html.DropDownList("selectedMonth", (SelectList)ViewBag.Months, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
+
+@if (ViewBag.ShowResult==true)
+{
+    <div id="resultContainer">
+        <h2>Kết quả:</h2>
+        <!-- Hiển thị bảng kết quả ở đây -->
+        <table class="table">
+            <tr style="background-color: powderblue">
+                <td>
+                    <b>Mã sản phẩm</b>
+                </td>
+                <td>
+                    <b>Tên sản phẩm</b>
+                </td>
+                <td>
+                    <b>Số lượng</b>
+                </td>
+            </tr>
+            <!-- Duyệt qua danh sách kết quả và hiển thị từng dòng -->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSP</td>
+                    <td>@item.TenSP</td>
+                    <td>@item.SoLuong</td>
+                    <!-- Thêm các cột khác tương ứng -->
+                </tr>
+            }
+        </table>
+    </div>
+}

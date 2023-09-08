@@ -1,0 +1,14 @@
+﻿body {
+}
+/* Để căn giữa Delete view */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Điều này giúp view căn giữa theo chiều dọc */
+}
+
+/* Để làm cho chữ lớn hơn */
+.large-text {
+    font-size: 24px;
+}

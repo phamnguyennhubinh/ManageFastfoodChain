@@ -1,5 +1,7 @@
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -8,6 +10,8 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.Al
 
 var app = builder.Build();
 
+
+  
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -22,9 +26,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 app.MapControllers();
-
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();    
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
