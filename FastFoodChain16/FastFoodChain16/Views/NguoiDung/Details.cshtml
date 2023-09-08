@@ -1,0 +1,56 @@
+﻿
+@model FastFoodChain16.Models.TaiKhoan
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+
+<h1 style="text-align:center;font-weight:bold;">CHI TIẾT TÀI KHOẢN</h1>
+<head>
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<div>
+    <h4>Tài khoản:</h4>
+     <table class="table">
+        <tr>
+            <td style="width: 30%; text-align: right;"> <!-- Điều chỉnh chiều rộng và căn lề phải -->
+                @Html.DisplayNameFor(model => model.TenDangNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.TenDangNhap)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%; text-align: right;"> <!-- Điều chỉnh chiều rộng và căn lề phải -->
+                @Html.DisplayNameFor(model => model.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.MatKhau)
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.MaTk">Edit</a> |
+    <a asp-action="ListUser">Back to List</a>
+</div>

@@ -1,45 +1,103 @@
 is_global = true
 build_property.TargetFramework = net6.0
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.PublishSingleFile = 
+build_property.IncludeAllContentForSelfExtract = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FastFoodChain16
 build_property.RootNamespace = FastFoodChain16
-build_property.ProjectDir = C:\Users\HP\Desktop\LTCSDL\FastFoodChain16\FastFoodChain16\
+build_property.ProjectDir = C:\ManageFastfoodChain\FastFoodChain16\FastFoodChain16\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\HP\Desktop\LTCSDL\FastFoodChain16\FastFoodChain16
+build_property.MSBuildProjectDirectory = C:\ManageFastfoodChain\FastFoodChain16\FastFoodChain16
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/HP/Desktop/LTCSDL/FastFoodChain16/FastFoodChain16/Views/Home/Index.cshtml]
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/LTCSDL/FastFoodChain16/FastFoodChain16/Views/Home/Privacy.cshtml]
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/LTCSDL/FastFoodChain16/FastFoodChain16/Views/Shared/Error.cshtml]
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Home/StringModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdHJpbmdNb2RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/dangnhap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXGRhbmduaGFwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/ListUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXExpc3RVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/ListProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxMaXN0UHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/LTCSDL/FastFoodChain16/FastFoodChain16/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/LTCSDL/FastFoodChain16/FastFoodChain16/Views/_ViewImports.cshtml]
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/ThongKe/ThongKeSLSP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlU0xTUC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/LTCSDL/FastFoodChain16/FastFoodChain16/Views/_ViewStart.cshtml]
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/LTCSDL/FastFoodChain16/FastFoodChain16/Views/Shared/_Layout.cshtml]
+[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-454rbjpe9p
