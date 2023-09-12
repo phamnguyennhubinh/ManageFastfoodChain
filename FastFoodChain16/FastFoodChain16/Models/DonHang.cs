@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FastFoodChain16.Models;
 
 public partial class DonHang
 {
+    [Display(Name = "Mã đơn hàng")]
     public int MaDh { get; set; }
 
     public int? MaKh { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using FastFoodChain16.Models;
 
 namespace FastFoodChain16.Models;
 
@@ -43,8 +44,26 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         return Set<MonthlySaleResult>().FromSqlRaw("EXEC spMonthlySales @year, @month", yearParam, monthParam);
     }
+    public DbSet<DonHangKH> DonHangKHs { get; set; }
 
+    // Định nghĩa phương thức tương ứng với Stored Procedure
+    [DbFunction("spDonHang", "dbo")]
+    public virtual IQueryable<DonHangKH> spDonHang(int maTK)
+    {
+        var maTKparam = new SqlParameter("@maTK", maTK);
+        return Set<DonHangKH>().FromSqlRaw("EXEC spDonHang @maTK", maTKparam);
+    }
+    public DbSet<RevenueByMonth> ThongKeDoanhThu { get; set; }
+    public virtual DbSet<RevenueByMonth> RevenueByMonth { get; set; }
+    [DbFunction("sp_ThongKeDoanhThu", "dbo")]
+    public virtual IQueryable<RevenueByMonth> sp_ThongKeDoanhThu(int thang, int nam)
+    {
 
+        var monthParam = new SqlParameter("@thang", thang);
+        var yearParam = new SqlParameter("@nam", nam);
+
+        return Set<RevenueByMonth>().FromSqlRaw("sp_ThongKeDoanhThu @thang, @nam", monthParam, yearParam);
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=NHBNH482D;Initial Catalog=QuanLyBanFastFood16;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
@@ -52,6 +71,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<MonthlySaleResult>().HasNoKey();
+        //modelBuilder.Entity<DonHangKH>().HasNoKey();
         modelBuilder.Entity<ChiTietDonHang>(entity =>
         {
             entity.HasKey(e => new { e.MaDh, e.MaSp }).HasName("PK__ChiTietD__F557D6E0BEF6D4F1");
@@ -205,4 +225,6 @@ public partial class QuanLyBanFastFood16Context : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public DbSet<FastFoodChain16.Models.Cart>? Cart { get; set; }
 }

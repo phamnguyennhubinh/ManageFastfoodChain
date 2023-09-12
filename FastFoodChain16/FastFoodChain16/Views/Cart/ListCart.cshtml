@@ -1,0 +1,79 @@
+﻿@model IEnumerable<FastFoodChain16.Models.Cart>
+
+@{
+    ViewData["Title"] = "ListCart";
+    Layout = null;
+}
+
+<h1 style="text-align:center; font-weight:bold;">GIỎ HÀNG</h1>
+<head>
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="background-color: powderblue">
+            <th>
+                @Html.DisplayNameFor(model => model.TenSp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.MaSp">Details</a> |
+                <a asp-action="RemoveFromCart" asp-route-id="@item.MaSp">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+    <div>
+        <a asp-action="ListProduct" asp-controller="KhachHang">Menu</a>
+    </div>
+    <tr>
+        <td colspan="2"> Số lượng sản phẩm: @ViewBag.CountProduct</td>
+     <td colspan="2"> Thành tiền: @ViewBag.Total</td>
+     <td>
+         <a asp-action="OrderProduct">Đặt hàng</a> |
+     </td>
+    </tr>
+
+</table>

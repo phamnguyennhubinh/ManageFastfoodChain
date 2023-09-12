@@ -1,0 +1,62 @@
+﻿@model FastFoodChain16.Models.SanPham
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="text-align:center;font-weight:bold;">CHI TIẾT SẢN PHẨM</h1>
+
+<div>
+    <div>
+        <h4>Thông tin sản phẩm:</h4>
+        <hr />
+        <style>
+            table, th, td {
+                padding: 0px 5px;
+            }
+        </style>
+     </div>
+        <table border="0" align="center">
+            <tr>
+                <td align="right"><b>TenSanPham </b> </td>
+                <td>
+                    @Html.DisplayFor(model => model.TenSp)
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right"><b>DonGia </b> </td>
+                <td>
+                    @Html.DisplayFor(model => model.DonGia)
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right"><b>MaLoai </b> </td>
+                <td>
+                    @Html.DisplayFor(model => model.MaLoai)
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right"><b>MaNhaCungCap </b> </td>
+                <td>
+                    @Html.DisplayFor(model => model.MaNcc)
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right"><b>MoTa</b> </td>
+                <td>
+                    @Html.DisplayFor(model => model.MoTa)
+                </td>
+            </tr>
+            </table>
+</div>
+<div>
+    @* <a asp-action="Edit" asp-route-id="@Model?.MaSp">Edit</a> | *@
+    @* <a asp-action="ListProduct">Back to List</a> *@
+    <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@Model.MaSp" class=" buy-now btn btn-sm btn-primary">Add To Cart</a>
+    <a asp-action="ListProduct" asp-controller="KhachHang">Back To List</a>
+   
+</div>

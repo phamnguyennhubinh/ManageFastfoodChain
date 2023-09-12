@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FastFoodChain16.Models.RevenueByMonth>
+
+@{
+    ViewData["Title"] = "ThongKeDT";
+    Layout = null;
+}
+
+<a asp-action="ListProduct" asp-controller="SanPham">ListProduct</a>
+<a asp-action="ListUser" asp-controller="NguoiDung">ListUser</a>
+<a asp-action="ThongKeSLSP" asp-controller="ThongKe">Statistical Product</a>
+<a asp-action="ThongKeDT" asp-controller="ThongKe">Statistical Revenue</a>
+
+<h1 style="text-align:center;font-weight:bold;">THỐNG KÊ DOANH THU TRONG THÁNG</h1>
+
+
+<div id="formContainer">
+    @using (Html.BeginForm("ThongKeDT", "ThongKe", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("Select Year:")
+            @Html.DropDownList("nam", (SelectList)ViewBag.Years, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Select Month:")
+            @Html.DropDownList("thang", (SelectList)ViewBag.Months, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.DoanhThu</td>
+        </tr>
+    }
+    
+            
+      
+}

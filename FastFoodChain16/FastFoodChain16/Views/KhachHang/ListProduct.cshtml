@@ -1,0 +1,74 @@
+﻿@model IEnumerable<FastFoodChain16.Models.SanPham>
+
+@{
+    ViewData["Title"] = "ListProduct";
+    Layout = null;
+}
+
+<h1 style="text-align:center;font-weight:bold;">MENU SẢN PHẨM</h1>
+<div>
+    <a asp-action="XemDH" asp-controller="KhachHang">Thông tin đơn hàng đã đặt</a>
+</div>
+<head>
+    <style type="text/css">
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    </style>
+</head>
+@using (Html.BeginForm("ListProduct", "KhachHang", FormMethod.Get))
+{
+    <p>
+        Tìm tên sản phẩm : @Html.TextBox("SearchString", ViewBag.CurentFilter as string)
+        <input type="submit" value=" Tìm kiếm "/>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr style="background-color: powderblue">
+            <th>
+                @Html.DisplayNameFor(model => model.TenSp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.MaSp">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

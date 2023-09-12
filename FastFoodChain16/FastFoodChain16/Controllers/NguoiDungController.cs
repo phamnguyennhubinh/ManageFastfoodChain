@@ -1,4 +1,5 @@
-﻿using FastFoodChain16.Models;
+﻿using System.Text.RegularExpressions;
+using FastFoodChain16.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,12 +8,13 @@ namespace FastFoodChain16.Controllers
     public class NguoiDungController : Controller
     {
         QuanLyBanFastFood16Context da = new QuanLyBanFastFood16Context();
-        // GET: NguoiDungController
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
+        //GET: NguoiDungController
+        public ActionResult Index()
+        {
+            return View();
+        }
+        
+        [HttpGet]
         public ActionResult DangNhap()
         {
             ViewData.Model = "Đăng nhập nah";
@@ -27,12 +29,6 @@ namespace FastFoodChain16.Controllers
             //List<TaiKhoan> ds = da.TaiKhoans.Select(s => s).ToList();
             return View(ds);  
         }
-        //public IActionResult Oh()
-        //public IActionResult DangKy()
-        //{
-
-        //}
-
         //GET: NguoiDungController/Details/5
         public ActionResult Details(int id)
         {
