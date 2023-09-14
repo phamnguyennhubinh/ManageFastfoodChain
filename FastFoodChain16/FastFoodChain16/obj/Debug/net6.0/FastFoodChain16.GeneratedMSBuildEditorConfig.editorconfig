@@ -15,117 +15,125 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.RootNamespace = FastFoodChain16
 build_property.RootNamespace = FastFoodChain16
-build_property.ProjectDir = C:\ManageFastfoodChain\FastFoodChain16\FastFoodChain16\
+build_property.ProjectDir = C:\T-SQL\New\FastFoodChain16\FastFoodChain16\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\ManageFastfoodChain\FastFoodChain16\FastFoodChain16
+build_property.MSBuildProjectDirectory = C:\T-SQL\New\FastFoodChain16\FastFoodChain16
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Cart/ListCart.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Cart/ListCart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxMaXN0Q2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Home/Index.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Cart/OrderProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlclByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Cart/RemoveFromCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxSZW1vdmVGcm9tQ2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Home/Privacy.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Home/StringModel.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Home/StringModel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdHJpbmdNb2RlbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/KhachHang/Create.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/KhachHang/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/KhachHang/CreateTK.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/KhachHang/CreateTK.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXENyZWF0ZVRLLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/KhachHang/Details.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/KhachHang/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/KhachHang/ListProduct.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/KhachHang/ListProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXExpc3RQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/KhachHang/Login.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/KhachHang/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/KhachHang/XemDH.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/KhachHang/XemDH.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXFhlbURILmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Create.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Delete.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Details.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Edit.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/NguoiDung/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/NguoiDung/ListUser.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/NguoiDung/ListUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lEdW5nXExpc3RVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Create.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/SanPham/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Delete.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/SanPham/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Details.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/SanPham/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/Edit.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/SanPham/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/SanPham/ListProduct.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/SanPham/ListProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxMaXN0UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Shared/Error.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/ThongKe/ThongKeDT.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/ThongKe/ThongKeDT.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlRFQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/ThongKe/ThongKeSLSP.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/ThongKe/ThongKeSLSP.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZVxUaG9uZ0tlU0xTUC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/_ViewImports.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/_ViewStart.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ManageFastfoodChain/FastFoodChain16/FastFoodChain16/Views/Shared/_Layout.cshtml]
+[C:/T-SQL/New/FastFoodChain16/FastFoodChain16/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-454rbjpe9p

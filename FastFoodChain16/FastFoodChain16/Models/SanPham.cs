@@ -9,6 +9,7 @@ public partial class SanPham
     [Display(Name = "Mã sản phẩm")]
     public int MaSp { get; set; }
     [Display(Name = "Mã loại")]
+
     public int? MaLoai { get; set; }
     [Display(Name = "Mã nhà cung cấp")]
     public int? MaNcc { get; set; }

@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = null;
 }
 
 <h1 style="text-align:center;font-weight:bold;">CHI TIẾT SẢN PHẨM</h1>
@@ -18,35 +19,35 @@
      </div>
         <table border="0" align="center">
             <tr>
-                <td align="right"><b>TenSanPham </b> </td>
+                <td align="right"><b>Tên sản phẩm </b> </td>
                 <td>
                     @Html.DisplayFor(model => model.TenSp)
                 </td>
             </tr>
 
             <tr>
-                <td align="right"><b>DonGia </b> </td>
+                <td align="right"><b>Đơn giá </b> </td>
                 <td>
                     @Html.DisplayFor(model => model.DonGia)
                 </td>
             </tr>
-
+@*
             <tr>
                 <td align="right"><b>MaLoai </b> </td>
                 <td>
                     @Html.DisplayFor(model => model.MaLoai)
                 </td>
             </tr>
-
-            <tr>
+*@
+@*            <tr>
                 <td align="right"><b>MaNhaCungCap </b> </td>
                 <td>
                     @Html.DisplayFor(model => model.MaNcc)
                 </td>
-            </tr>
+            </tr>*@
 
             <tr>
-                <td align="right"><b>MoTa</b> </td>
+                <td align="right"><b>Mô tả</b> </td>
                 <td>
                     @Html.DisplayFor(model => model.MoTa)
                 </td>
@@ -57,6 +58,6 @@
     @* <a asp-action="Edit" asp-route-id="@Model?.MaSp">Edit</a> | *@
     @* <a asp-action="ListProduct">Back to List</a> *@
     <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@Model.MaSp" class=" buy-now btn btn-sm btn-primary">Add To Cart</a>
-    <a asp-action="ListProduct" asp-controller="KhachHang">Back To List</a>
+    <a asp-action="ListProduct" asp-controller="KhachHang">MENU</a>
    
 </div>

@@ -1,5 +1,6 @@
 ﻿using FastFoodChain16.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FastFoodChain16.Controllers
 {
@@ -22,6 +23,7 @@ namespace FastFoodChain16.Controllers
         }
 
         // GET: SanPhamController/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -34,14 +36,34 @@ namespace FastFoodChain16.Controllers
         {
             try
             {
-                //Lay SP tra ve
-                SanPham p = sanpham;
-                //Them vao bang Product
-                da.SanPhams.Add(p);
-                //Cap nhat xuong database
-                da.SaveChanges();
-                //Hien thi lai DS
-                return RedirectToAction("ListProduct");
+                var maloai = collection["MaLoai"];
+                var mancc = collection["MaNCC"];
+                SanPham sp1 = da.SanPhams.SingleOrDefault(s => s.MaLoai == maloai);
+                SanPham sp2 = da.SanPhams.SingleOrDefault(s => s.MaNcc == mancc);
+                if (sp1 != null)
+                {
+                    if(sp2!= null)
+                    {
+                        //Lay SP tra ve
+                        SanPham p = sanpham;
+                        //Them vao bang Product
+                        da.SanPhams.Add(p);
+                        //Cap nhat xuong database
+                        da.SaveChanges();
+                        //Hien thi lai DS
+                        return RedirectToAction("ListProduct");
+                    }
+                    else
+                    {
+                        ViewBag.Thongbao = "Mã nhà cung cấp không tồn tại trong hệ thống.";
+                        return View();
+                    }    
+                }  
+                else
+                {
+                    ViewBag.Thongbao = "Mã loại không tồn tại trong hệ thống.";
+                    return View();
+                }    
             }
             catch
             {

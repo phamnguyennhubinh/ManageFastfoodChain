@@ -28,9 +28,6 @@
         }
     </style>
 </head>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr style="background-color: powderblue">
@@ -72,7 +69,7 @@
         <td colspan="2"> Số lượng sản phẩm: @ViewBag.CountProduct</td>
      <td colspan="2"> Thành tiền: @ViewBag.Total</td>
      <td>
-         <a asp-action="OrderProduct">Đặt hàng</a> |
+         <a asp-action="OrderProduct" asp-controller="Cart">Đặt hàng</a> |
      </td>
     </tr>
 

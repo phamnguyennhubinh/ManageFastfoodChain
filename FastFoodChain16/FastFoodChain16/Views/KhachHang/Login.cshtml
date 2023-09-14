@@ -4,7 +4,7 @@
     Layout = null;
 }
 
-<h3 style="text-align:center">ĐĂNG NHẬP</h3>
+<h1 style="text-align:center">ĐĂNG NHẬP</h1>
 <table align="center">
     @using (Html.BeginForm())
     {
@@ -27,6 +27,7 @@
              <td></td>
              <td>
                  <input type="submit" value="Đăng nhập"/>
+                 <a asp-action="Create" asp-controller="KhachHang">   Đăng ký</a>
              </td>
         </tr>
         <tr>

@@ -32,6 +32,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
     public virtual DbSet<SanPham> SanPhams { get; set; }
 
     public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+    public DbSet<MyEntities> MyEntities { get; set; }   
     public DbSet<MonthlySaleResult> MonthlySales { get; set; }
 
     public virtual DbSet<MonthlySaleResult> MonthlySalesResults { get; set; }
@@ -64,17 +65,17 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         return Set<RevenueByMonth>().FromSqlRaw("sp_ThongKeDoanhThu @thang, @nam", monthParam, yearParam);
     }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=NHBNH482D;Initial Catalog=QuanLyBanFastFood16;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<MonthlySaleResult>().HasNoKey();
-        //modelBuilder.Entity<DonHangKH>().HasNoKey();
         modelBuilder.Entity<ChiTietDonHang>(entity =>
         {
-            entity.HasKey(e => new { e.MaDh, e.MaSp }).HasName("PK__ChiTietD__F557D6E0BEF6D4F1");
+            modelBuilder.Entity<MonthlySaleResult>().HasNoKey();
+            entity.HasKey(e => new { e.MaDh, e.MaSp }).HasName("PK__ChiTietD__F557D6E08473FE6C");
 
             entity.ToTable("ChiTietDonHang");
 
@@ -100,7 +101,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<DonHang>(entity =>
         {
-            entity.HasKey(e => e.MaDh).HasName("PK__DonHang__2725866179EAA885");
+            entity.HasKey(e => e.MaDh).HasName("PK__DonHang__27258661FADA726C");
 
             entity.ToTable("DonHang");
 
@@ -122,7 +123,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<KhachHang>(entity =>
         {
-            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1ED35EFE63");
+            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1EFB6FA124");
 
             entity.ToTable("KhachHang");
 
@@ -142,7 +143,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<LoaiSp>(entity =>
         {
-            entity.HasKey(e => e.MaLoai).HasName("PK__LoaiSP__730A5759416C4351");
+            entity.HasKey(e => e.MaLoai).HasName("PK__LoaiSP__730A575921687370");
 
             entity.ToTable("LoaiSP");
 
@@ -152,7 +153,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<NhaCungCap>(entity =>
         {
-            entity.HasKey(e => e.MaNcc).HasName("PK__NhaCungC__3A185DEB7E80C3A9");
+            entity.HasKey(e => e.MaNcc).HasName("PK__NhaCungC__3A185DEB2C283B06");
 
             entity.ToTable("NhaCungCap");
 
@@ -168,7 +169,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<NhanVien>(entity =>
         {
-            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70A72DC560F");
+            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70A37DE3008");
 
             entity.ToTable("NhanVien");
 
@@ -190,7 +191,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<SanPham>(entity =>
         {
-            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081C2D60FCA1");
+            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081C8294FF02");
 
             entity.ToTable("SanPham");
 
@@ -212,7 +213,7 @@ public partial class QuanLyBanFastFood16Context : DbContext
 
         modelBuilder.Entity<TaiKhoan>(entity =>
         {
-            entity.HasKey(e => e.MaTk).HasName("PK__TaiKhoan__272500708295DA8C");
+            entity.HasKey(e => e.MaTk).HasName("PK__TaiKhoan__272500706C8CEBE4");
 
             entity.ToTable("TaiKhoan");
 

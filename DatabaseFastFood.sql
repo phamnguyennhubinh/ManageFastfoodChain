@@ -17,7 +17,7 @@ CREATE TABLE [dbo].[KhachHang](
 	[MaKH] [int] IDENTITY(1,1) Primary key,
 	[HoKH] [nvarchar](100) NOT NULL,
 	[TenKH] [nvarchar](50) NOT NULL,
-	[SDT] [nvarchar](20) NULL,
+	[SDT] [nvarchar](20) NOT NULL,
 	[Email] [nvarchar](50) NULL,
 	[DiaChi] [nvarchar](500) NULL)
 

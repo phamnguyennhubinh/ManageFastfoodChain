@@ -7,7 +7,7 @@ namespace FastFoodChain16.Models
         [Display(Name = "Mã đơn hàng")]
         public int MaDH { get; set; }
         [Display(Name = "Tên sản phẩm")]
-        public string TenSP { get; set; }
+        public string? TenSP { get; set; }
         [Display(Name = "Số lượng")]
         public int SoLuong { get; set; }
         [Display(Name = "Đơn giá")]
@@ -15,7 +15,7 @@ namespace FastFoodChain16.Models
         [Display(Name = "Ngày đặt hàng")]
         public DateTime NgayDat { get; set; }
         [Display(Name = "Ngày giao hàng")]
-        public DateTime NgayGiao { get; set; }
+        public DateTime? NgayGiao { get; set; }
         [Display(Name = "Tổng tiền")]
         public decimal TongTien { get; set; }
         [Display(Name = "Địa chỉ nhận hàng")]

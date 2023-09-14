@@ -1,6 +1,8 @@
 ﻿using FastFoodChain16.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace FastFoodChain16.Controllers
@@ -10,7 +12,7 @@ namespace FastFoodChain16.Controllers
         QuanLyBanFastFood16Context da = new QuanLyBanFastFood16Context();
         public IActionResult Index()
         {
-            return View();
+            return View("Login","KhachHang");
         }
         public IActionResult Create()
         {
@@ -23,15 +25,30 @@ namespace FastFoodChain16.Controllers
         {
             try
             {
-                //Tạo mới 1 đối tượng khách hàng kh
+                
+                var sdt = collection["Sdt"];
+
+                // Kiểm tra xem số điện thoại đã tồn tại trong cơ sở dữ liệu hay chưa
+                var existingKhachHang = da.KhachHangs.FirstOrDefault(kh => kh.Sdt == sdt);
+
+                if (existingKhachHang != null)
+                {
+                    // Số điện thoại đã tồn tại trong cơ sở dữ liệu
+                    ViewData["Loi"] = "Số điện thoại đã tồn tại.";
+                    return View();
+                }
                 KhachHang kh = new KhachHang();
                 //Gán các thuộc tính cho khách hàng kh
                 kh = khachHang;
-                //Thêm kh vào bảng Khách hàng
+
+                // Thêm khách hàng vào bảng Khách hàng
                 da.KhachHangs.Add(kh);
-                //Lưu xuống database
+                HttpContext.Session.SetString("SDT", khachHang.Sdt);
+
+                // Lưu xuống database
                 da.SaveChanges();
-                //Gọi lại trang 
+
+                // Gọi lại trang 
                 return RedirectToAction("CreateTK", "KhachHang");
             }
             catch (Exception)
@@ -50,22 +67,55 @@ namespace FastFoodChain16.Controllers
         {
             try
             {
-                //Tạo mới 1 đối tượng khách hàng kh
-                TaiKhoan tk = new TaiKhoan();
-                //Gán các thuộc tính cho khách hàng kh
-                tk = taiKhoan;
-                //Thêm kh vào bảng Khách hàng
-                da.TaiKhoans.Add(tk);
-                //Lưu xuống database
-                da.SaveChanges();
-                //Gọi lại trang 
-                return RedirectToAction("Login", "KhachHang");
+                var tendn = collection["TenDangNhap"];
+                var pass = collection["MatKhau"];
+                //Tạo mới 1 đối tượng tài khoản
+                //TaiKhoan tk = new TaiKhoan();
+                //Gán các thuộc tính cho tài khoản
+                var same = HttpContext.Session.GetString("SDT");
+                if (tendn==same)
+                {
+                    if(IsStrongPassword(pass))
+                    {
+                        TaiKhoan tk = new TaiKhoan();
+                        tk = taiKhoan;
+                        //Thêm kh vào bảng tài khoản
+                        da.TaiKhoans.Add(tk);
+                        //Lưu xuống database
+                        da.SaveChanges();
+                        //Gọi lại trang 
+                        return RedirectToAction("Login", "KhachHang");
+                    }    
+                    else
+                    {
+                        ViewData["Loi1"] = "Mật khẩu chưa đủ mạnh. Mật khẩu chứa ít nhất 8 ký tự, trong đó có ít nhất 1 chữ cái viết hoa, 1 chữ cái viết thường và 1 số";
+                        return View();
+                    }    
+                } 
+                else
+                {
+                    ViewData["Loi2"] = "Tên đăng nhập phải là số điện thoại.";
+                    return View();
+                }    
+               
             }
             catch (Exception)
             {
                 return View();
             }
         }
+        private bool IsPhoneNumber(string input)
+        {
+            // Định dạng số điện thoại (ví dụ: 10 chữ số, bắt đầu bằng số 0)
+            return input.Length == 10 && input.StartsWith("0") && input.All(char.IsDigit);
+        }
+
+        private bool IsStrongPassword(string input)
+        {
+            // Điều kiện kiểm tra mật khẩu mạnh
+            return input.Length >= 8 && input.Any(char.IsUpper) && input.Any(char.IsLower) && input.Any(char.IsDigit);
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -91,7 +141,15 @@ namespace FastFoodChain16.Controllers
                 {
                     HttpContext.Session.SetInt32("MaTK", tk.MaTk);
                     ViewBag.Thongbao = "Chúc mừng bạn đăng nhập thành công!";
-                    return RedirectToAction("ListProduct", "KhachHang"); 
+                    //return RedirectToAction("ListProduct", "KhachHang"); 
+                    if (matkhau.Contains("Admin"))
+                    {
+                        return RedirectToAction("ListProduct", "SanPham");
+                    }
+                    else
+                    {
+                        return RedirectToAction("ListProduct", "KhachHang");
+                    }    
 
                 }
                 else
@@ -100,16 +158,14 @@ namespace FastFoodChain16.Controllers
             }
             return View();
         }
+
         public IActionResult XemDH()
         {
-            var ma = HttpContext.Session.GetInt32("MaTK");
-            if (ma.HasValue)
+            var maTK = HttpContext.Session.GetInt32("MaTK");
+            if (maTK.HasValue)
             {
-                int maTK = ma.Value; // Chuyển đổi từ int? sang int
-
                 // Sử dụng maTK để truy vấn hoặc truyền vào Stored Procedure
-               
-                var results = da.spDonHang(maTK).ToList();
+                var results = da.spDonHang(maTK.Value).ToList();
                 // Xử lý kết quả
                 return View(results);
             }
@@ -119,7 +175,6 @@ namespace FastFoodChain16.Controllers
                 return RedirectToAction("Login"); // Hoặc điều hướng đến trang đăng nhập khác
             }
         }
-        //
         public ActionResult ListProduct(string SearchString)
         {
             ////List<SanPham> listProduct = da.SanPhams.ToList() ;
@@ -129,7 +184,7 @@ namespace FastFoodChain16.Controllers
 
             if (!string.IsNullOrEmpty(SearchString))
             {
-                listProduct = listProduct.Where(s => s.TenSp.Contains(SearchString)).ToList();
+                listProduct = listProduct.Where(s => s.TenSp.IndexOf(SearchString, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
             }
 
             return View(listProduct);
@@ -144,6 +199,7 @@ namespace FastFoodChain16.Controllers
         {
             return View();
         }
+ 
     }
 }
 

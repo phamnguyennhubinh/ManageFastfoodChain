@@ -11,18 +11,9 @@ namespace FastFoodChain16.Controllers
         //GET: NguoiDungController
         public ActionResult Index()
         {
-            return View();
+            return View("Login","KhachHang");
         }
         
-        [HttpGet]
-        public ActionResult DangNhap()
-        {
-            ViewData.Model = "Đăng nhập nah";
-            var view = new ViewResult();
-            view.ViewName = "/Views/NguoiDung/dangnhap.cshtml";
-            view.ViewData = ViewData;
-            return view;
-        }
         public IActionResult ListUser()
         {
             IEnumerable<TaiKhoan> ds = da.TaiKhoans.Select(s => s);

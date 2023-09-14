@@ -2,13 +2,11 @@
 
 @{
     ViewData["Title"] = "XemDH";
-    Layout = null;
 }
-
 <h1 style="text-align:center;font-weight:bold;">XEM THÔNG TIN ĐƠN HÀNG</h1>
 
 <p>
-    <a asp-action="ListProduct">Quay lại trang chủ</a>
+    <a asp-action="ListProduct">MENU</a>
 </p>
 <head>
     <style type="text/css">
@@ -31,8 +29,7 @@
             cursor: pointer;
         }
     </style>
-</head>
-<table class="table">
+</head><table class="table">
     <thead>
         <tr style="background-color: powderblue">
             <th>
@@ -59,7 +56,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Omessage)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>

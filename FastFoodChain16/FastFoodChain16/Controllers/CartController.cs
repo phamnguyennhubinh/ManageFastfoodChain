@@ -1,12 +1,14 @@
 ﻿using System.Transactions;
+using FastFoodChain16.DTO;
 using FastFoodChain16.Helper;
 using FastFoodChain16.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace FastFoodChain16.Controllers
 {
-    public class CartController : Controller
+    public class CartController : Controller 
     {
         QuanLyBanFastFood16Context da = new QuanLyBanFastFood16Context();
         public List<Cart> GetListCarts
@@ -59,7 +61,14 @@ namespace FastFoodChain16.Controllers
             var item = myCart.SingleOrDefault(p => p.MaSp == id);
             if (item != null)
             {
-                myCart.Remove(item);
+                if (item.SoLuong > 1)
+                {
+                    item.SoLuong -= 1;
+                }
+                else
+                {
+                    myCart.Remove(item);
+                }
             }
             HttpContext.Session.Set("Carts", myCart);
             return RedirectToAction("ListCart");
@@ -75,48 +84,80 @@ namespace FastFoodChain16.Controllers
             HttpContext.Session.Set("Carts", myCart);
             return RedirectToAction("ListCart");
         }
-        public ActionResult OrderProduct()
-        {
-            using (TransactionScope tranScope = new TransactionScope())
-                try
-                {
-                    //1.Tạo một đơn hàng mới cho bảng Order
-                    //1.1 Tạo orders order
-                    DonHang p = new DonHang();
-                    //1.2 Gán thuộc tính cho order
-                    p.NgayDat = DateTime.Now;
-                    //1.3 Add vào bảng Order
-                    da.DonHangs.Add(p);
-                    //1.4 Cập nhật database
-                    da.SaveChanges();
-                    //2. Thêm các SP của đơn hàng đó và OrderDetails
-                    //2.1 Duyệt từng sản phẩm trong giỏ hàng
-                    foreach (Cart item in GetListCarts)
-                    {
-                        //2.2 Tạo mới một đối tượng OrderDetails
-                        ChiTietDonHang orderDetail = new ChiTietDonHang();
-                        //2.3 Gán thuộc tính cho OrderDetails
-                        orderDetail.MaDh = p.MaDh;
-                        orderDetail.MaSp = item.MaSp;
-                        orderDetail.DonGia = decimal.Parse(item.DonGia.ToString());
-                        orderDetail.SoLuong = short.Parse(item.SoLuong.ToString());
-                        orderDetail.Discount = 0;
-                        //2.4  Add vào bảng OrderDetails
-                        da.ChiTietDonHangs.Add(orderDetail);
 
-                    }
-                    //2.5 Cập nhật database
-                    da.SaveChanges();
-                    tranScope.Complete(); //Hoan tat trans
-                }
-                catch (SqlException exx)
-                {
-                    tranScope.Dispose();
-                    return RedirectToAction("ListOrders");//sưar
-                }
-            return RedirectToAction("ListOrders","KhachHang");//Sửa
+        public IActionResult OrderProduct(IFormCollection collection, DonHang donHang)
+        {
+            //using (TransactionScope tranScope = new TransactionScope())
+            //    try
+            //    {
+                    var diachinhan = collection["DiaChiNhan"].ToString();
+                    DonHang p = new DonHang();
+                    if (string.IsNullOrEmpty(diachinhan))
+                    {
+                        ViewData["Loi2"] = "Vui lòng nhập địa chỉ nhận";
+                    } 
+                    else
+                    {
+
+                //1.Tạo một đơn hàng mới cho bảng Order
+                //1.1 Tạo orders order
+                //DonHang p = new DonHang();
+                //1.2 Gán thuộc tính cho order'
+                var ma = HttpContext.Session.GetInt32("MaTK");
+                var entity = da.MyEntities.FromSqlRaw("SELECT * FROM dbo.fGetMaKH({0})", ma).FirstOrDefault();
+                int? maKHValue = entity.MaKH; // Giả sử Id là thuộc tính kiểu int trong TEntity
+
+
+                // Xử lý kết quả
+                if (maKHValue != null)
+                         {
+                           
+                            p.MaKh = maKHValue;
+                            p.Omessage = donHang.Omessage;
+                            p.DiaChiNhan = donHang.DiaChiNhan;
+                            p.NgayDat = DateTime.Now;
+                            p.NgayGiao = null;
+                            //1.3 Add vào bảng Order
+                            da.DonHangs.Add(p);
+                            //1.4 Cập nhật database
+                            da.SaveChanges();
+                            //2. Thêm các SP của đơn hàng đó và OrderDetails
+                            //2.1 Duyệt từng sản phẩm trong giỏ hàng
+                            foreach (Cart item in GetListCarts)
+                            {
+                                //2.2 Tạo mới một đối tượng OrderDetails
+                                ChiTietDonHang orderDetail = new ChiTietDonHang();
+                                //2.3 Gán thuộc tính cho OrderDetails
+                                orderDetail.MaDh = p.MaDh;
+                                orderDetail.MaSp = item.MaSp;
+                                orderDetail.DonGia = decimal.Parse(item.DonGia.ToString());
+                                orderDetail.SoLuong = short.Parse(item.SoLuong.ToString());
+                                orderDetail.MaTk = ma;
+                                orderDetail.Discount = 0;
+                                //2.4  Add vào bảng OrderDetails
+                                da.ChiTietDonHangs.Add(orderDetail);
+
+                            }
+                            //2.5 Cập nhật database
+                            da.SaveChanges();
+                    //tranScope.Complete(); //Hoan tat trans
+                    return RedirectToAction("XemDH", "KhachHang", new {maTK = ma});
+                        }
+                            else
+                            {
+                                // Xử lý khi không tìm thấy MaKH hoặc MaKH rỗng
+                                return RedirectToAction("Login"); // Hoặc điều hướng đến trang đăng nhập khác
+                            }
+            }
+            //}
+            //catch (Exception)
+            //{
+            //    tranScope.Dispose();
+            //    return RedirectToAction("ListCart","Cart");
+            //}
+            return View();
         }
-        public ActionResult ListOrders()
+        public IActionResult ListOrders()
         {
             var sp = da.DonHangs.OrderByDescending(s => s.NgayDat).ToList();
             return View(sp);
