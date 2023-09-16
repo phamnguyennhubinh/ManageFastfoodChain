@@ -37,17 +37,22 @@ END
 
 EXEC spDonHang 1
 --------------------
-CREATE PROCEDURE sp_ThongKeDoanhThu (@thang int,@nam int)
+Alter PROCEDURE sp_ThongKeDoanhThu
+    @thang INT,
+    @nam INT
 AS
 BEGIN
-	IF EXISTS(SELECT * FROM DonHang WHERE Month(NgayDat) = @thang)
-	BEGIN
-		SELECT SUM(DonGia * SoLuong * (1 -Discount)) AS DoanhThu
-		FROM ChiTietDonHang od JOIN DonHang o ON od.MaDH = o.MaDH
-		Where MONTH(NgayDat) = @thang AND YEAR(NgayDat) = @nam
-	END
-	ELSE
-		SELECT NULL AS DoanhThu
+    DECLARE @doanhthu DECIMAL(18, 2)
+
+    SELECT @doanhthu = SUM(DonGia * SoLuong * (1 - Discount))
+    FROM ChiTietDonHang od
+    JOIN DonHang o ON od.MaDH = o.MaDH
+    WHERE MONTH(NgayDat) = @thang AND YEAR(NgayDat) = @nam
+
+    IF @doanhthu IS NULL
+        SET @doanhthu = 0
+
+    SELECT @doanhthu AS DoanhThu
 END
 
-EXEC sp_ThongKeDoanhThu 5, 2023
+EXEC sp_ThongKeDoanhThu 11, 2023
